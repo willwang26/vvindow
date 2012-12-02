@@ -1,0 +1,24 @@
+
+<launch>
+  
+  <!-- Kinect -->
+  <include file="$(find vvindow)/launch/openni.launch">
+  	<arg name="depth_registration" value="True" />
+  </include>
+  
+  <!-- Skeleton traking -->
+  <node pkg="openni_tracker" type="openni_tracker" name="openni_tracker"/>
+  
+  <!-- vvindow -->
+  <node pkg="vvindow" type="vvindow" name="vvindow" args="$(find vvindow)/data/cessna.osg" output="screen">
+    <remap from="cloud" to="/camera/depth_registered/points"/>
+  </node>
+  
+  <!-- TF -->
+  <node pkg="tf" type="static_transform_publisher" name="monitor_to_kinect" 
+  	args="0.14 0.0 -0.17 0.0 0.0 0 /base_link /camera_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="kinect_to_skeleton_tracker_frame" 
+  	args="0.0 0.0 0.0 0.0 0.0 0 /camera_depth_frame /openni_depth_frame 100" />
+
+
+</launch>
