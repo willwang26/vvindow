@@ -33,6 +33,16 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="0.690301993.1649755977" name="osgcompositeviewer.cpp" rcbsApplicability="disable" resourcePath="osgcompositeviewer.cpp" toolsToInvoke="org.eclipse.cdt.build.core.settings.holder.47908986.1706884452">
+						<tool id="org.eclipse.cdt.build.core.settings.holder.47908986.1706884452" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder.271222644">
+							<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1414889059" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="0.690301993.1609846855" name="main.cpp" rcbsApplicability="disable" resourcePath="src/main.cpp" toolsToInvoke="org.eclipse.cdt.build.core.settings.holder.47908986.2015928505">
+						<tool id="org.eclipse.cdt.build.core.settings.holder.47908986.2015928505" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder.271222644">
+							<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.552654320" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+						</tool>
+					</fileInfo>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>

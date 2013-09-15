@@ -28,13 +28,13 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 
 #find_package(PCL 1.5 REQUIRED COMPONENTS)
-FIND_PACKAGE(OpenSceneGraph REQUIRED osgDB osgViewer osgGA osgUtil osgSim osgFX)
+FIND_PACKAGE(OpenSceneGraph REQUIRED osgDB osgViewer osgGA osgUtil osgSim osgFX osgText)
 
 include_directories(${OPENSCENEGRAPH_INCLUDE_DIRS})
-rosbuild_add_executable(vvindow main.cpp)
+rosbuild_add_executable(vvindow src/main.cpp)
 target_link_libraries(vvindow ${OPENSCENEGRAPH_LIBRARIES})
 
-SET(BUILD_EXAMPLES OFF)
+OPTION(BUILD_EXAMPLES "Build examples" OFF)
 IF(BUILD_EXAMPLES)
 
 rosbuild_add_executable(osgshape osgshape.cpp)
@@ -69,5 +69,8 @@ target_link_libraries(osgwindows ${OPENSCENEGRAPH_LIBRARIES})
 
 rosbuild_add_executable(osgcamera osgcamera.cpp)
 target_link_libraries(osgcamera ${OPENSCENEGRAPH_LIBRARIES})
+
+rosbuild_add_executable(osgkeyboard osgkeyboard.cpp)
+target_link_libraries(osgkeyboard ${OPENSCENEGRAPH_LIBRARIES})
 
 ENDIF(BUILD_EXAMPLES)
