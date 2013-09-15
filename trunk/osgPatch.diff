@@ -1,0 +1,26 @@
+Index: src/osgUtil/SceneView.cpp
+===================================================================
+--- src/osgUtil/SceneView.cpp	(revision 13216)
++++ src/osgUtil/SceneView.cpp	(working copy)
+@@ -1440,6 +1440,21 @@
+ 
+         // bog standard draw.
+         _renderStage->drawPreRenderStages(_renderInfo,previous);
++
++        osg::ColorMask* cmask2 = 0;
++        if(_secondaryStateSet.valid())
++        {
++        	cmask2 = static_cast<osg::ColorMask*>(_secondaryStateSet->getAttribute(osg::StateAttribute::COLORMASK));
++        }
++		if(!cmask2 && _globalStateSet.valid())
++		{
++			cmask2 = static_cast<osg::ColorMask*>(_globalStateSet->getAttribute(osg::StateAttribute::COLORMASK));
++		}
++		if(cmask2)
++		{
++			cmask->setMask(cmask2->getRedMask(), cmask2->getGreenMask(), cmask2->getBlueMask(),cmask2->getAlphaMask());
++		}
++
+         _renderStage->draw(_renderInfo,previous);
+     }
+ 
