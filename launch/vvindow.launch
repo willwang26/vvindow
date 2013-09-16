@@ -7,12 +7,13 @@
   <node pkg="vvindow" type="vvindow" name="vvindow" args="" output="screen">
     <remap from="cloud" to="/camera/depth_registered/points"/>
     
+    <param name="screenWidth" value="0.0" type="double"/>   <!-- 24"->0.52, 15.4"->0.332, 20"->0.41, 4.41-->
+    <param name="screenHeight" value="0.0" type="double"/> <!-- 24"->0.325 , 15.4"->0.207, 20"->0.32, 2.75-->
+    
     <param name="cloud" value="false" type="bool"/>        
-    <param name="stereo" value="false" type="bool"/>      
+    <param name="stereo" value="true" type="bool"/>      
     <param name="blackBg" value="true" type="bool"/>       
-    <param name="modelPath" value="$(find vvindow)/bin/cessna.osg" type="string"/>         <!-- example: $(find vvindow)/bin/cessna.osg -->
-    <param name="screenWidth" value="0.52" type="double"/>   <!-- 24"->0.52, 15.4"->0.332, 20"->0.41, 4.41-->
-    <param name="screenHeight" value="0.325" type="double"/> <!-- 24"->0.325 , 15.4"->0.207, 20"->0.32, 2.75-->
+    <param name="modelPath" value="" type="string"/>         <!-- example: $(find vvindow)/bin/cessna.osg -->
     <param name="originX" value="0.0" type="double"/>
     <param name="originY" value="0.0" type="double"/>
     <param name="originZ" value="0.0" type="double"/>
