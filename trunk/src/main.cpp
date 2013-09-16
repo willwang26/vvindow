@@ -131,7 +131,7 @@ osg::Node * createCoordinate(double size = 0.05) // 5 cm
 
 	linesGeom->setVertexArray(vertices);
 	linesGeom->setColorArray(colors);
-	linesGeom->setColorBinding(osg::Geometry::BIND_PER_PRIMITIVE);
+	//linesGeom->setColorBinding(osg::Geometry::BIND_PER_PRIMITIVE);
 	linesGeom->setNormalArray(normals);
 	linesGeom->setNormalBinding(osg::Geometry::BIND_OVERALL);
 	linesGeom->addPrimitiveSet(new osg::DrawArrays(osg::PrimitiveSet::LINES,0,14));
@@ -393,8 +393,8 @@ int main( int argc, char **argv )
 	bool stereo = true;
 	bool blackBg = true;
 	std::string modelPath = "";
-	double screenWidth = 0.52; // 24" DELL U2410
-	double screenHeigth = 0.325; // 24" DELL U2410
+	double screenWidth = 0.0;
+	double screenHeigth = 0.0;
 	double x=0.0, y=0.0 ,z=0.0;
 
 	np.param("cloud", cloud, cloud);
@@ -417,6 +417,12 @@ int main( int argc, char **argv )
 	ROS_INFO("screenHeight=%f", screenHeigth);
 	ROS_INFO("origin=%f,%f,%f", origin.x(), origin.y(), origin.z());
 	ROS_INFO("scale=%f", scale);
+
+	if(screenWidth == 0.0f || screenHeigth == 0.0f)
+	{
+		ROS_ERROR("screenWidth and/or screenHeigth parameters not set!");
+		return -1;
+	}
 
 	ros::NodeHandle n;
 	ros::Subscriber sub;
